@@ -46,7 +46,7 @@ Configure VGS Proxy to redact sensetive data sent to the Order Service and revea
 ![checkout](/docs/merchant_portal.png)    
 
 ## Payment Processor Admin Form (Simulated):        
-![checkout](/docs/merchant_portal.png)      
+![checkout](/docs/processor_form.png)      
 
 
 ## Run Demo App
