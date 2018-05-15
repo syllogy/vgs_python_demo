@@ -114,7 +114,7 @@ Some quick tips on how to set up VGS proxies for use with this application.
 ### Reverse Proxy
 (Reference: https://www.verygoodsecurity.com/docs/reverse-proxy).
 
-* Use reverse proxy URL to access Order Service, e.g. `https://tntywefqyrb.SANDBOX.verygoodproxy.com`
+* Use reverse proxy URL to access Order Service, e.g. `https://<your tenant id>.SANDBOX.verygoodproxy.com`
 * Set upstream to ngrok address, e.g. `https://e907262d.ngrok.io`
 * Filter condition should be PathInfo equals `/payment`
 * Operation is to **REDACT** form fields:
