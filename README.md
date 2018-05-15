@@ -1,18 +1,24 @@
 # VGS ECommerce Demo - Python
 
-This demo app demonstrates a typical scenario for operating with sensetive data to showcase how a typical ecommerce shopping card checkout flow can be integrated with VGS to secure the sensitive data. The benefit is that we can remove the sensitive PCI footprint of data from our application and database. VGS is fully PCI-DSS compliant and allows you to build an application which has very limited or zero audit footprint. 
+**Coming soon! WIP:**
+This demo is functional but will recieve some key updates in coming weeks.    
+
+This demo app demonstrates a typical scenario for operating with sensetive data to showcase how a typical ecommerce shopping card checkout flow can be integrated with VGS to secure the sensitive data. The benefit is that we can remove the sensitive PCI footprint of data from our application and database. VGS is fully PCI-DSS compliant and allows you to build an application which has very limited or zero audit footprint.    
+
+{flow diagram forthcoming}
 
 ## Use case
 
 **There are 2 customer services**
-1. Order Service (Shopping cart checkout flow) 
-2. Merchant Portal - manage payments, disputes, etc..
-and   
-3. a 3rd party Payment Service.    
+1. **Order Service** (Shopping cart checkout flow) 
+2. **Merchant Portal** - manage payments, disputes, etc..
+and       
+3. **3rd party Payment Service simulation.** << This represents whatever 3rd party processor integration you may have.    
 
-Users can go to Order Service (cart checkout screen) and place order(s) with their payment's data (card number, billing address, etc). When user places an order the payment information is stored in customer's storage. It can be later processed in Merchant Portal.   
+Users can go to Order Service **(cart checkout screen)** and place order(s) with their payment's data (card number, billing address, etc). When user places an order the payment information is stored in customer's storage. It can be later processed in Merchant Portal.   
 
-An authorized user of Merchant Portal can charge the payment - this action initiates call to an external Payment Service.
+An authorized user of Merchant Portal can charge the payment - 
+this action initiates call to an external Payment Service.    
 
 - Order Service (http://localhost:8080)
 - Merchant Portal (http://localhost:8080/merchant_admin/payments)
@@ -36,7 +42,7 @@ Configure VGS Proxy to redact sensetive data sent to the Order Service and revea
 
 
 ## Run Demo App
-**We are going to use** [Docker](https://docker.com) to run the app.
+**We will use** [Docker](https://docker.com) to run the app.
 
 ### Build
 
@@ -64,8 +70,8 @@ docker run -it \
 
 ### Expose to Internet
 
-**Local development:**    
-In order to integrate the app running on your local machine with VGS proxy you'll have to expose the app to the internet.
+**For local development:**    
+In order to integrate the app running on your local machine with VGS proxy you'll have to expose the app to the internet. This will allow us to 'insert' the VGS proxy between middle and backend components as you would via a live app on the Internet. 
 
 Use ![ngrok](https://ngrok.com/).  This handy tool and service lets you set up a secure tunnel to your localhost, which is a fancy way of saying it opens access to your local app from the internet.
 
@@ -91,6 +97,8 @@ In most cases this is usually:
 ```
 #### Step 3: Tunnel your server
 It's time to run ngrok and let the magic happen.
+
+{Diagram forthcoming}
 
 If you went for option A on Step 2, fire up a Terminal window, navigate to the directory where you unzipped ngrok and start it by telling it which port we want to expose to the public internet. To do this,type:
 ```bash
