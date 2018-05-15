@@ -73,7 +73,7 @@ docker run -it \
 **For local development:**    
 In order to integrate the app running on your local machine with VGS proxy you'll have to expose the app to the internet. This will allow us to 'insert' the VGS proxy between middle and backend components as you would via a live app on the Internet. 
 
-Use ![ngrok](https://ngrok.com/).  This handy tool and service lets you set up a secure tunnel to your localhost, which is a fancy way of saying it opens access to your local app from the internet.
+Use [ngrok](https://ngrok.com/).  This handy tool and service lets you set up a secure tunnel to your localhost, which is a fancy way of saying it opens access to your local app from the internet.
 
 #### Step 1: Download ngrok
 Go to https://ngrok.com/ and download the version that corresponds to your platform. In our case, we'll be downloading the Mac OS X 64-bit version.
