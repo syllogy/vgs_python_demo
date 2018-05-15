@@ -1,5 +1,7 @@
-# Instructions for using this App for Demo purposes
-This demo app demonstrates the typical scenario for operating with sensetive data to showcase how a customers apps can be integrated with VGS to secure the sensitive data.
+# VGS ECommerce Demo 
+
+This demo app demonstrates a typical scenario for operating with sensetive data to showcase how a typical ecommerce shopping card checkout flow can be integrated with VGS to secure the sensitive data. The benefit is that we can remove the sensitive PCI footprint of data from our application and database. VGS is fully PCI-DSS compliant and allows you to build an application which has very limited or zero audit footprint. 
+
 ## Use case
 
 There are 2 customer services (Order Service and Merchant Portal) and a 3rd party Payment Service.
