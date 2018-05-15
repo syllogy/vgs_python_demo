@@ -1,11 +1,24 @@
-# Instructions for using this App for Demo purposes
-This demo app demonstrates the typical scenario for operating with sensetive data to showcase how a customers apps can be integrated with VGS to secure the sensitive data.
+# VGS ECommerce Demo - Python
+
+**Coming soon! WIP:**
+This demo is functional but will recieve some key updates in coming weeks.    
+
+This demo app demonstrates a typical scenario for operating with sensetive data to showcase how a typical ecommerce shopping card checkout flow can be integrated with VGS to secure the sensitive data. The benefit is that we can remove the sensitive PCI footprint of data from our application and database. VGS is fully PCI-DSS compliant and allows you to build an application which has very limited or zero audit footprint.    
+
+{flow diagram forthcoming}
+
 ## Use case
 
-There are 2 customer services (Order Service and Merchant Portal) and a 3rd party Payment Service.
+**There are 2 customer services**
+1. **Order Service** (Shopping cart checkout flow) 
+2. **Merchant Portal** - manage payments, disputes, etc..
+and       
+3. **3rd party Payment Service simulation.** << This represents whatever 3rd party processor integration you may have.    
 
-Users can go to Order Service and place order(s) with their payment's data (card number, billing address, etc). When user places an order the payment information is stored in customer's storage. It can be later processed in Merchant Portal.
-An authorized user of Merchant Portal can charge the payment - this action initiates call to an external Payment Service.
+Users can go to Order Service **(cart checkout screen)** and place order(s) with their payment's data (card number, billing address, etc). When user places an order the payment information is stored in customer's storage. It can be later processed in Merchant Portal.   
+
+An authorized user of Merchant Portal can charge the payment - 
+this action initiates call to an external Payment Service.    
 
 - Order Service (http://localhost:8080)
 - Merchant Portal (http://localhost:8080/merchant_admin/payments)
@@ -29,7 +42,7 @@ Configure VGS Proxy to redact sensetive data sent to the Order Service and revea
 
 
 ## Run Demo App
-We are going to use [Docker](https://docker.com) to run the app.
+**We will use** [Docker](https://docker.com) to run the app.
 
 ### Build
 
@@ -57,9 +70,10 @@ docker run -it \
 
 ### Expose to Internet
 
-In order to integrate the app running on your local machine with VGS proxy you'll have to expose the app to the internet.
+**For local development:**    
+In order to integrate the app running on your local machine with VGS proxy you'll have to expose the app to the internet. This will allow us to 'insert' the VGS proxy between middle and backend components as you would via a live app on the Internet. 
 
-Use ngrok. This handy tool lets you set up a secure tunnel to your localhost, which is a fancy way of saying it opens access to your local app from the internet.
+Use [ngrok](https://ngrok.com/).  This handy tool and service lets you set up a secure tunnel to your localhost, which is a fancy way of saying it opens access to your local app from the internet.
 
 #### Step 1: Download ngrok
 Go to https://ngrok.com/ and download the version that corresponds to your platform. In our case, we'll be downloading the Mac OS X 64-bit version.
@@ -71,7 +85,7 @@ a) You can extract ngrok into the folder of your preference and run ngrok from t
 
 or
 
-b) (Recommended) Extract ngrok on your system's $PATH directory. The advantage of going with this option is that you'll be able to run ngrok from any path on the command line.
+b) **(Recommended)** Extract ngrok on your system's $PATH directory. The advantage of going with this option is that you'll be able to run ngrok from any path on the command line.
 
 To get your system's $PATH simply type from the Terminal:
 ```
@@ -83,6 +97,8 @@ In most cases this is usually:
 ```
 #### Step 3: Tunnel your server
 It's time to run ngrok and let the magic happen.
+
+{Diagram forthcoming}
 
 If you went for option A on Step 2, fire up a Terminal window, navigate to the directory where you unzipped ngrok and start it by telling it which port we want to expose to the public internet. To do this,type:
 ```bash
@@ -104,7 +120,7 @@ docker run -it \
    -p 3000:3000 -p 3001:3001 -p 8080:8080 \
    --rm --name python_demo -v $(pwd):/opt/app/src \
    -e HTTPS_PROXY=https://user:pass@proxy.com:port \
-   -e VGS_PROCESSOR_ROOT_URL=https://063d7f2f.ngrok.io/charge \
+   -e VGS_PROCESSOR_ROOT_URL=https://<your id>.ngrok.io/charge \
    python_demo
 ```
 
@@ -114,7 +130,7 @@ Some quick tips on how to set up VGS proxies for use with this application.
 ### Reverse Proxy
 (Reference: https://www.verygoodsecurity.com/docs/reverse-proxy).
 
-* Use reverse proxy URL to access Order Service, e.g. `https://tntywefqyrb.SANDBOX.verygoodproxy.com`
+* Use reverse proxy URL to access Order Service, e.g. `https://<your tenant id>.SANDBOX.verygoodproxy.com`
 * Set upstream to ngrok address, e.g. `https://e907262d.ngrok.io`
 * Filter condition should be PathInfo equals `/payment`
 * Operation is to **REDACT** form fields:
