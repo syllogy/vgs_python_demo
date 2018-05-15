@@ -39,6 +39,8 @@ Configure VGS Proxy to redact sensetive data sent to the Order Service and revea
 - go to https://dashboard.verygoodsecurity.com and configure VGS Proxy to reveal the sensetive data on the way out (when sent to Payment Service)
 - go to the Payment Service and verify the payments data with the actual credit card number/CVV code was received
 
+## Cart checkout form:    
+![checkout](/docs/checkout-form.png)    
 
 
 ## Run Demo App
