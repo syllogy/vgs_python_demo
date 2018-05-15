@@ -104,7 +104,7 @@ docker run -it \
    -p 3000:3000 -p 3001:3001 -p 8080:8080 \
    --rm --name python_demo -v $(pwd):/opt/app/src \
    -e HTTPS_PROXY=https://user:pass@proxy.com:port \
-   -e VGS_PROCESSOR_ROOT_URL=https://063d7f2f.ngrok.io/charge \
+   -e VGS_PROCESSOR_ROOT_URL=https://<your id>.ngrok.io/charge \
    python_demo
 ```
 
