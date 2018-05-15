@@ -4,9 +4,14 @@ This demo app demonstrates a typical scenario for operating with sensetive data 
 
 ## Use case
 
-There are 2 customer services (Order Service and Merchant Portal) and a 3rd party Payment Service.
+**There are 2 customer services**
+1. Order Service (Shopping cart checkout flow) 
+2. Merchant Portal - manage payments, disputes, etc..
+and   
+3. a 3rd party Payment Service.    
 
-Users can go to Order Service and place order(s) with their payment's data (card number, billing address, etc). When user places an order the payment information is stored in customer's storage. It can be later processed in Merchant Portal.
+Users can go to Order Service (cart checkout screen) and place order(s) with their payment's data (card number, billing address, etc). When user places an order the payment information is stored in customer's storage. It can be later processed in Merchant Portal.   
+
 An authorized user of Merchant Portal can charge the payment - this action initiates call to an external Payment Service.
 
 - Order Service (http://localhost:8080)
@@ -31,7 +36,7 @@ Configure VGS Proxy to redact sensetive data sent to the Order Service and revea
 
 
 ## Run Demo App
-We are going to use [Docker](https://docker.com) to run the app.
+**We are going to use** [Docker](https://docker.com) to run the app.
 
 ### Build
 
@@ -59,9 +64,10 @@ docker run -it \
 
 ### Expose to Internet
 
+**Local development:**    
 In order to integrate the app running on your local machine with VGS proxy you'll have to expose the app to the internet.
 
-Use ngrok. This handy tool lets you set up a secure tunnel to your localhost, which is a fancy way of saying it opens access to your local app from the internet.
+Use ![ngrok](https://ngrok.com/).  This handy tool and service lets you set up a secure tunnel to your localhost, which is a fancy way of saying it opens access to your local app from the internet.
 
 #### Step 1: Download ngrok
 Go to https://ngrok.com/ and download the version that corresponds to your platform. In our case, we'll be downloading the Mac OS X 64-bit version.
@@ -73,7 +79,7 @@ a) You can extract ngrok into the folder of your preference and run ngrok from t
 
 or
 
-b) (Recommended) Extract ngrok on your system's $PATH directory. The advantage of going with this option is that you'll be able to run ngrok from any path on the command line.
+b) **(Recommended)** Extract ngrok on your system's $PATH directory. The advantage of going with this option is that you'll be able to run ngrok from any path on the command line.
 
 To get your system's $PATH simply type from the Terminal:
 ```
