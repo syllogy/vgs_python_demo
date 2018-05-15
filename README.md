@@ -146,7 +146,11 @@ Some quick tips on how to set up VGS proxies for use with this application.
 * Filter condition should be PathInfo equals `/charge`
 * Operation is to **REVEAL** JSON fields:
     - `$.card`
-    - `$.card_security_code`
+    - `$.card_security_code` 
+    
+## Example proxy rules:    
+![VGS Proxy rules:](/docs/rules.png)     
+
 
 ## Used Technologies/Tools:
 
