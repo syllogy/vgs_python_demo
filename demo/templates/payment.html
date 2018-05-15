@@ -1,0 +1,194 @@
+{% extends "layout.html" %} {% block body %}
+<div class="container wrapper">
+  <div class="row cart-head">
+    <div class="container">
+      <div class="row">
+        <button type="button" class="btn btn-danger hand" id="reset">Clear</button>
+        <button type="button" class="btn btn-primary hand" id="fill">Fill</button>
+      </div>
+      <div class="row">
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <div class="row cart-body">
+    <form class="form-horizontal2 boxed" method="post" action="/payment">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <!--REVIEW ORDER-->
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            Review Order
+            <div class="pull-right"><small><a class="afix-1" href="#">Edit Cart</a></small></div>
+          </div>
+          <div class="panel-body">
+            <div class="form-group same-line">
+              <div class="col-sm-3 col-xs-3 text-center">
+                <img class="img-responsive product-img" src="//logo.clearbit.com/{{ url }}" />
+              </div>
+              <div class="col-sm-6 col-xs-6">
+                <div class="col-xs-12">Product name</div>
+                <div class="col-xs-12"><small>Quantity:<span>1</span></small></div>
+              </div>
+              <div class="col-sm-3 col-xs-3 text-right">
+                <h6><span>$</span>25.00</h6>
+              </div>
+            </div>
+            <div class="form-group">
+              <hr />
+            </div>
+            <div class="form-group same-line">
+              <div class="col-sm-3 col-xs-3 text-center">
+                <img class="img-responsive product-img" src="//logo.clearbit.com/{{ url }}" />
+              </div>
+              <div class="col-sm-6 col-xs-6">
+                <div class="col-xs-12">Product name</div>
+                <div class="col-xs-12"><small>Quantity:<span>1</span></small></div>
+              </div>
+              <div class="col-sm-3 col-xs-3 text-right">
+                <h6><span>$</span>25.00</h6>
+              </div>
+            </div>
+            <div class="form-group">
+              <hr />
+            </div>
+            <div class="form-group same-line">
+              <div class="col-sm-3 col-xs-3 text-center">
+                <img class="img-responsive product-img" src="//logo.clearbit.com/{{ url }}" />
+              </div>
+              <div class="col-sm-6 col-xs-6">
+                <div class="col-xs-12">Product name</div>
+                <div class="col-xs-12"><small>Quantity:<span>2</span></small></div>
+              </div>
+              <div class="col-sm-3 col-xs-3 text-right">
+                <h6><span>$</span>50.00</h6>
+              </div>
+            </div>
+            <div class="form-group">
+              <hr />
+            </div>
+            <div class="form-group">
+              <div class="col-xs-12">
+                <strong>Subtotal</strong>
+                <div class="pull-right"><span>$</span><span>100.00</span></div>
+              </div>
+              <div class="col-xs-12">
+                <small>Shipping</small>
+                <div class="pull-right"><span>-</span></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <hr />
+            </div>
+            <div class="form-group">
+              <div class="col-xs-12">
+                <strong>Order Total</strong>
+                <div class="pull-right"><span>$</span><span>100.00</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--REVIEW ORDER END-->
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <!--SHIPPING METHOD-->
+        <div class="panel panel-info">
+          <div class="panel-heading">Billing</div>
+          <div class="panel-body inline-fields">
+            <div class="form-group">
+              <div class="col-md-12"><strong>name</strong></div>
+              <div class="col-md-12">
+                <input type="text" id="name" name="name" class="form-control" placeholder="Name On Card" value="" />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12"><strong>billing_address</strong></div>
+              <div class="col-md-12">
+                <input type="text" id="billing_address" name="billing_address" class="form-control" placeholder="Card Billing Address" value="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--SHIPPING METHOD END-->
+        <!--CREDIT CART PAYMENT-->
+        <div class="panel panel-info">
+          <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Secure Payment</div>
+          <div class="form-group">
+            <div class="col-md-12">
+              <label for="pan_number" id="pan_number_label">cc_number</label>
+              <input class="form-control" placeholder="Card Number" type="text" name="cc_number" id="pan_number" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-12">
+              <label for="pan_exp" id="pan_exp_label">cc_exp</label>
+              <input class="form-control" placeholder="Card Expiration" type="text" name="cc_exp" id="pan_exp" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-12">
+              <label for="pan_cvv" id="pan_cvv_label">cc_cvv</label>
+              <input class="form-control" placeholder="CVV" type="text" name="cc_cvv" id="pan_cvv" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-12">
+              <span>Pay secure using your credit card.</span>
+            </div>
+            <div class="col-md-12">
+              <ul class="cards">
+                <li class="visa">Visa</li>
+                <li class="mastercard">MasterCard</li>
+                <!-- <li class="amex">Amex</li> -->
+              </ul>
+              <div class="form-group pull-right">
+                <button type="submit" class="btn btn-primary btn-submit-fix hand">Place Order</button>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--CREDIT CART PAYMENT END-->
+      <input type="hidden" name="url" value="{{ url }}">
+    </form>
+  </div>
+</div>
+<div class="row cart-footer">
+</div>
+</div>
+<script type="text/javascript">
+document.getElementById("reset").onclick = function() {
+  document.getElementById('name').value = '';
+  document.getElementById('billing_address').value = '';
+  document.getElementById('pan_number').value = '';
+  document.getElementById('pan_exp').value = '';
+  document.getElementById('pan_cvv').value = '';
+};
+document.getElementById("fill").onclick = function() {
+  document.getElementById('name').value = 'Bob Jones';
+  document.getElementById('billing_address').value = '1 Dr Carlton B Goodlett Pl, San Francisco, CA 94102';
+  document.getElementById('pan_number').value = '5105105105105100';
+  document.getElementById('pan_exp').value = '12/20';
+  document.getElementById('pan_cvv').value = '123';
+};
+function ready(callback){
+    // in case the document is already rendered
+    if (document.readyState !== 'loading') callback();
+    // modern browsers
+    else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
+    // IE <= 8
+    else document.attachEvent('onreadystatechange', function(){
+        if (document.readyState === 'complete') callback();
+    });
+}
+
+ready(function(){
+  document.getElementById('pan_number').name = 'card-number';
+  document.getElementById('pan_exp').name = 'card-expiration-date';
+  document.getElementById('pan_cvv').name = 'card-security-code';
+  document.getElementById('pan_number_label').innerHTML = 'card-number';
+  document.getElementById('pan_exp_label').innerHTML = 'card-expiration-date';
+  document.getElementById('pan_cvv_label').innerHTML = 'card-security-code';
+});
+</script>
+{% endblock %}
