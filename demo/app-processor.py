@@ -20,7 +20,7 @@ app.config['SQLALCHEMY_ECHO'] = True
 
 persistence.init_app(app)
 payment.init_app(app)
-# processor.init_app(app)
+processor.init_app(app)
 
 DEFAULT_PORT = 8080
 
@@ -73,7 +73,7 @@ def main(pa):
     with app.app_context():
         persistence.init_db(drop=pa.init_db)
 
-    pr = ('http','{0}:{1}'.format(pa.server_host, pa.server_port), '',
+    pr = ('http','{0}:{1}'.format(pa.server_host, pa.server_port), 'processor_admin',
           None, None)
 
     app.config['VGS_PROCESSOR_ROOT_URL'] = urlunsplit(pr)

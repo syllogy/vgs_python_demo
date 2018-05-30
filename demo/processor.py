@@ -1,18 +1,16 @@
+import requests
+
 from datetime import datetime
 from urllib.parse import urljoin, urlunsplit
-
-import requests
 from flask import Blueprint, current_app, request
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
-
 
 import helpers as h
 import persistence
 
 db = persistence.db
 bp = Blueprint('processor', __name__)
-
 
 @bp.route('/charge', methods=('POST',))
 def create_charge():
@@ -39,6 +37,7 @@ def charge(payload):
                  PROXY_PORT=current_app.config['VGS_PROXY_PORT']
              ),
              '', None, None))
+
     r = requests.post(
         url,
         data=h.dumps(payload),
@@ -47,7 +46,6 @@ def charge(payload):
         verify='demo/static/cert.pem'
     )
     return r
-
 
 class Charge(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -81,6 +79,7 @@ def init_app(app):
                             name='Processor Portal',
                             base_template='processor/admin/base.html',
                             template_mode='bootstrap3')
+
     processor_admin.add_view(ChargeView(
         Charge, db.session, endpoint='charges'))
     return app
