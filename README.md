@@ -51,8 +51,26 @@ Configure VGS Proxy to redact sensetive data sent to the Order Service and revea
 
 ## Run Demo App
 **We will use** [Docker](https://docker.com) to run the app.
-
+```bash
 ### Build
+
+# Usage (given build times depend on machine):
+#
+#    Build SMALL image (no cache; ~20MB, time for build=rebuild = ~360s):
+#    docker build --squash="true" -t pydemo:latest .
+#
+#    Build FAST (rebuild) image (cache; >280MB, build time ~360s, rebuild time ~80s):
+#    docker build -t pydemo .
+#
+#    Clean (remove intermediate images):
+#    docker rmi -f $(docker images -f "dangling=true" -q)
+#
+#    Run image (on localhost:8080):
+#    docker run --name pydemo -p 8080:80 pydemo &
+#
+#    Run image as virtual host (read more: https://github.com/jwilder/nginx-proxy):
+#    docker run -e VIRTUAL_HOST=pydemo.your-domain.com --name pydemo pydemo &
+```
 
 ```bash
 docker build . -t python_demo
