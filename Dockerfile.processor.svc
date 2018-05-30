@@ -14,5 +14,5 @@ ADD package.json /opt/app
 RUN cd /opt/app && npm install
 
 # this is for virtual host purposes
-EXPOSE 3000 3001 8080 5000
-CMD ["python", "demo/app-processor.py"]
+EXPOSE 3000 3001 8088 5000
+CMD ["python", "demo/app.processor.py"]

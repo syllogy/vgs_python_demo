@@ -22,7 +22,7 @@ persistence.init_app(app)
 payment.init_app(app)
 processor.init_app(app)
 
-DEFAULT_PORT = 8080
+DEFAULT_PORT = 8088
 
 def _find_first(dikt, *args):
     """finds the first non-None value in a dictionary from a list of keys"""
